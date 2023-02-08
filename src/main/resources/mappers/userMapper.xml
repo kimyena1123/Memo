@@ -28,4 +28,23 @@
 			,now()
 		)
 	</insert>
+	
+	<select id="selectUser"
+			parameterType="map"
+			resultType="com.yena.memo.user.model.User">
+		SELECT
+			id
+			,user_id
+			,user_pw
+			,user_name
+			,user_email
+			,createdAt
+			,updatedAt
+		FROM
+			`user`
+		WHERE
+			user_id = #{user_id}
+		AND 
+			user_pw = #{user_pw}	
+	</select>
 </mapper>

@@ -69,7 +69,7 @@
 				
 				$.ajax({
 					type: 'post',
-					url: '/user/signup',
+					url: '/user/signup', //RestController에서.
 					data: {
 						"user_id" : user_id,
 						"user_pw" : user_pw,
