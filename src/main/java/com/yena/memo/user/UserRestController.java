@@ -27,7 +27,7 @@ public class UserRestController {
 			,@RequestParam("user_email") String user_email){
 		
 		int count = userBO.addUser(user_id, user_pw, user_name, user_email);
-	
+		
 		Map<String, Boolean> result = new HashMap<>();
 		
 		if(count == 1) { //insert 성공
