@@ -18,6 +18,7 @@ public class UserBO {
 		//비밀번호 암호화
 		String encryptPassword = EncryptUtils.md5(user_pw);
 		
+		//넘겨줄 때 user_pw가 아닌 암호화된 encryptPassword로 넘겨준다.
 		return userDAO.insertUser(user_id, encryptPassword, user_name, user_email);
 	}
 }
