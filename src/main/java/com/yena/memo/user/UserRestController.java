@@ -52,22 +52,22 @@ public class UserRestController {
 		
 		User user = userBO.getUser(user_id, user_pw);
 		
-		//세션 객체 얻어오기
-		HttpSession session = request.getSession();
-		
+		Map<String, Boolean> result = new HashMap<>();
 		//세션에 특정한 값이 저장되어 있으면 로그인 된 상태
 		//세션에 특정한 값이 저장되어 있지 않으면 로그인이 되어있지 않은 상태
-		session.setAttribute("session_user_index", user.getId());
-		session.setAttribute("session_user_name", user.getUser_name());
-		session.setAttribute("session_user_id", user.getUser_id());
-		
-		Map<String, Boolean> result = new HashMap<>();
 
 		//조회 안됐으면 null
 		if(user != null) {
 			result.put("result", true);
+			
+			//세션 객체 얻어오기
+			HttpSession session = request.getSession();
+			
 			//로그인 성공하면 session 생성.
-			//index 값을 저장한 세션 생성
+			//index 값 등을 저장한 세션 생성
+			session.setAttribute("session_user_index", user.getId());
+			session.setAttribute("session_user_name", user.getUser_name());
+			session.setAttribute("session_user_id", user.getUser_id());
 		}else {
 			result.put("result", false);
 		}
