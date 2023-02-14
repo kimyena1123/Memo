@@ -13,11 +13,18 @@ header{
 .contents > .join-box{
 	width: 350px;
 }
+
+.input-box{
+	width: 650px;
+}
+.list-box{
+	width: 900px;
+}
+
 footer{
 	height: 50px;
 	background-color: #dddddd;
 }
-
 
 
 

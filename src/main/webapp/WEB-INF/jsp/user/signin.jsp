@@ -19,13 +19,16 @@
 		
 		<section class="contents d-flex justify-content-center">
 			<div class="join-box my-5">
+				<form id="loginForm">
 				<input type="text" class="form-control mt-2" placeholder="아이디" name="user_id" id = "login_id">
 				<input type="password" placeholder="비밀번호" class="form-control mt-2" name="user_pw" id="login_pw">
 				
-				<button type="button" class="btn btn-primary btn-block mt-2" id="loginBtn">로그인</button>
+				<button type="submit" class="btn btn-primary btn-block mt-2" id="loginBtn">로그인</button>
  			
  				<div class="text-center mt-4"><a href="/user/signup/view">회원가입</a></div>
+ 				</form>
  			</div>
+ 			
 		</section>
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
@@ -33,7 +36,14 @@
 	
 	<script>
 		$(document).ready(function(){
-			$("#loginBtn").on("click", function(){
+			$("#loginForm").on("submit", function(e){
+			//$("#loginBtn").on("click", function(){
+				
+				//해당 이벤트의 기능을 모두 취소한다
+				//preventDefault : 브라우저에서 구현된 기본 동작을 취소해준다.
+    			//폼 이벤트 : 폼이 제출되면 새로고침되는 기본동작을 취소
+				e.preventDefault();
+				
 				let user_id = $("#login_id").val();
 				let user_pw = $("#login_pw").val();
 				
